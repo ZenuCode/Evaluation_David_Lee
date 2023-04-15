@@ -25,7 +25,9 @@ const APIs = (() => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data),
-        }).then((res) => res.json());
+        })
+        .then(() => { window.location.reload(); })
+        .then((res) => res.json());
     }
 
     const editTodo = (data, id) => {
@@ -35,7 +37,9 @@ const APIs = (() => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(data),
-        }).then((res) => res.json());
+        })
+        .then(() => { window.location.reload(); })
+        .then((res) => res.json());
     };
 
     return { getTodos, createTodo, deleteTodo, moveTodo, editTodo, };
@@ -159,9 +163,6 @@ const Controller = ((view, model) => {
     const handleMove = () => {
         view.todolistEl.addEventListener("click", (event) => {
             if (event.target.className === "move-btn-right") {
-                const addTask = event.target.parentNode;
-                const tasksComplete = view.todolistE2;
-                tasksComplete.append(addTask);
                 event.target.list = 2;
                 const span = event.target.parentNode.querySelector("#span");
                 const listNum = event.target.list;
@@ -172,9 +173,6 @@ const Controller = ((view, model) => {
         });
         view.todolistE2.addEventListener("click", (event) => {
             if (event.target.className === "move-btn-left") {
-                const addTask = event.target.parentNode;
-                const tasksPending = view.todolistEl;
-                tasksPending.append(addTask);
                 event.target.list = 1;
                 const span = event.target.parentNode.querySelector("#span");
                 const listNum = event.target.list;
