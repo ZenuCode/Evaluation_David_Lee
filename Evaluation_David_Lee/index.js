@@ -87,14 +87,14 @@ const View = (() => {
                 <span id="span">${todo.content}</span>
                 <button class="edit-btn" type="button"></button>
                 <button class="delete-btn" id="${todo.id}" type="button"></button>
-                <button class="move-btn" type="button"></button></li>`;
+                <button class="move-btn-right" type="button"></button></li>`;
             }
             else if (todo.list == 2) {
                 todoTwoList += `<li id="${todo.id}" placeholder="${todo.list}">
-                <button class="edit-btn" type="button"></button>
+                <button class="move-btn-left" type="button"></button>
                 <span id="span">${todo.content}</span>
-                <button class="delete-btn" id="${todo.id}" type="button"></button>
-                <button class="move-btn" type="button"></button></li>`;
+                <button class="edit-btn" type="button"></button>
+                <button class="delete-btn" id="${todo.id}" type="button"></button></li>`;
             }
         });
         if (todoOneList.length === 0) {
@@ -158,7 +158,7 @@ const Controller = ((view, model) => {
 
     const handleMove = () => {
         view.todolistEl.addEventListener("click", (event) => {
-            if (event.target.className === "move-btn") {
+            if (event.target.className === "move-btn-right") {
                 const addTask = event.target.parentNode;
                 const tasksComplete = view.todolistE2;
                 tasksComplete.append(addTask);
@@ -171,7 +171,7 @@ const Controller = ((view, model) => {
             }
         });
         view.todolistE2.addEventListener("click", (event) => {
-            if (event.target.className === "move-btn") {
+            if (event.target.className === "move-btn-left") {
                 const addTask = event.target.parentNode;
                 const tasksPending = view.todolistEl;
                 tasksPending.append(addTask);

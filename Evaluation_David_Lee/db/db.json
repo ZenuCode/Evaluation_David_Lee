@@ -2,17 +2,17 @@
   "todos": [
     {
       "content": "Hello!",
-      "list": 1,
+      "list": 2,
       "id": 1
     },
     {
       "content": "Hello Again!",
-      "list": 1,
+      "list": 2,
       "id": 2
     },
     {
       "content": "Please Hire Me :)",
-      "list": 1,
+      "list": 2,
       "id": 3
     }
   ]
