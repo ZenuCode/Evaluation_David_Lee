@@ -238,7 +238,9 @@ const Controller = ((view, model) => {
             view.renderTodos(state.todos);
         });
     };
-    return { bootstrap, };
+    return { 
+        bootstrap, 
+    };
 })(View, Model); //ViewModel
 
 Controller.bootstrap();
